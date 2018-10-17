@@ -5,6 +5,12 @@ filetype off
 set laststatus=2
 set mouse=a
 set tabstop=4
+set wrap
+
+noremap , h
+noremap m j
+noremap . l
+
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -15,8 +21,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'itchyny/lightline.vim'
 Plugin 'w0rp/ale'
-Plugin 'shougo/neocomplete.vim'
-
+Bundle 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -29,8 +34,5 @@ let g:lightline = {
   \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
   \     }
   \ }
-
-let g:neocomplete#enable_at_startup = 1
-
 
 
