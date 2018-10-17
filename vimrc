@@ -4,7 +4,9 @@ set nocompatible
 filetype off
 set laststatus=2
 set mouse=a
-set tabstop=4
+filetype plugin indent on
+set tabstop=2
+set shiftwidth=2
 set wrap
 
 noremap , h
