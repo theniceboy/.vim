@@ -21,13 +21,15 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
-Plugin 'itchyny/lightline.vim'
+Plugin 'vim-airline/vim-airline'
 Plugin 'w0rp/ale'
+Plugin 'dracula/vim'
 Bundle 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
-
+colorscheme dracula
+let g:airline_theme='dracula'
 
 map <C-n> :NERDTreeToggle<CR>
 let g:lightline = {
@@ -36,5 +38,4 @@ let g:lightline = {
   \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
   \     }
   \ }
-
 
