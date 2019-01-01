@@ -17,7 +17,6 @@ noremap m j
 noremap . l
 noremap <C-s> <Esc>:w<CR>
 
-noremap <Esc> -
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
