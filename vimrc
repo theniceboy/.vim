@@ -43,6 +43,7 @@ elseif &filetype == 'mkd'
 endif
     endfunc
 
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
