@@ -11,13 +11,16 @@ set shiftwidth=2
 set wrap
 set expandtab
 
+noremap m i
+noremap u k
+noremap n h
+noremap e j
+noremap l u
+noremap i l
 
-noremap , h
-noremap m j
-noremap . l
 noremap <C-s> <Esc>:w<CR>
-map <F5> :call CompileRunGcc()<CR>
-    func! CompileRunGcc()
+map r :call CompileRunGcc()<CR>
+func! CompileRunGcc()
         exec "w"
 if &filetype == 'c'
             exec "!g++ % -o %<"
@@ -31,7 +34,7 @@ elseif &filetype == 'java'
 elseif &filetype == 'sh'
             :!time bash %
 elseif &filetype == 'python'
-            exec "!time python %"
+            exec "!time python3 %"
 elseif &filetype == 'html'
             exec "!firefox % &"
 elseif &filetype == 'go'
@@ -75,7 +78,7 @@ Plugin 'gko/vim-coloresque'
 Plugin 'mattn/emmet-vim'
 Plugin 'spf13/vim-preview'
 Plugin 'gabrielelana/vim-markdown'
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -105,4 +108,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 
