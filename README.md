@@ -34,16 +34,16 @@ alias vim='/Applications/MacVim.app/Contents/bin/mvim -v'
 
 ### 2 Window Management
 
-**`ww`** : loop cursor all window in current tab, equals to command (key combination) `Ctrl`+`w` `w`
+**`fw`** : loop cursor all window in current tab, equals to command (key combination) `Ctrl`+`w` `w`
 
-**`wu`** : move cursor to one window up, equals to command (key combination) `Ctrl`+`w` `k`
+**`fu`** : move cursor to one window up, equals to command (key combination) `Ctrl`+`w` `k`
 
-**`we`** : move cursor to one window down, equals to command (key combination) `Ctrl`+`w` `j`
+**`fe`** : move cursor to one window down, equals to command (key combination) `Ctrl`+`w` `j`
 
-**`wn`** : move cursor to one window left, equals to command (key combination) `Ctrl`+`w` `h`
+**`fn`** : move cursor to one window left, equals to command (key combination) `Ctrl`+`w` `h`
 
-**`wi`** : move cursor to one window right, equals to command (key combination) `Ctrl`+`w` `l`
+**`fi`** : move cursor to one window right, equals to command (key combination) `Ctrl`+`w` `l`
 
-**`wr`** : rotate window , equals to command (key combination) `Ctrl`+`w` `r`
+**`fr`** : rotate window , equals to command (key combination) `Ctrl`+`w` `r`
 
 

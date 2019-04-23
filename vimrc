@@ -11,32 +11,38 @@ set shiftwidth=2
 set wrap
 set expandtab
 set autochdir
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
 set splitright
 set splitbelow
 
 noremap s z
 
 " Save & quit
-map q :q<CR>
-map ss :w<CR>
+map Q :q<CR>
+map S :w<CR>
 
 " Insert Key
 noremap k i
 
 " Arr
-noremap u k
+noremap u gk
 noremap n h
-noremap e j
+noremap e gj
 noremap l u
 noremap i l
 
 " Window management
-map ww <C-w>w
-map wu <C-w>k
-map we <C-w>j
-map wn <C-w>h
-map wi <C-w>l
-map wr <C-w>r
+map fw <C-w>w
+map fu <C-w>k
+map fe <C-w>j
+map fn <C-w>h
+map fi <C-w>l
+map fr <C-w>r
 map su :set nosplitbelow<CR>:split<CR>
 map se :set splitbelow<CR>:split<CR>
 map sn :set nosplitright<CR>:vsplit<CR>
@@ -48,6 +54,9 @@ map tn :-tabnext<CR>
 map ti :+tabnext<CR>
 map tmn :-tabmove<CR>
 map tmi :+tabmove<CR>
+
+" Search
+map <CR> :nohlsearch<CR>
 
 " Compile function
 map r :call CompileRunGcc()<CR>
@@ -88,6 +97,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'dracula/vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'rhysd/conflict-marker.vim'
@@ -113,7 +123,7 @@ Plugin 'gabrielelana/vim-markdown'
 Plugin 'severin-lemaignan/vim-minimap'
 "Bundle 'Valloric/YouCompleteMe'
 " Plugin 'taglist.vim'
-
+Plugin 'ron89/thesaurus_query.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -157,7 +167,7 @@ let NERDTreeMapChangeRoot = "y"
 map m :MinimapUpdate<CR>:MinimapToggle<CR>
 
 " ale
-let b:ale_python_flake8_executable = "python3"
+" let b:ale_python_flake8_executable = "python3"
 " let g:ale_python_flake8_executable = 'python'
 " let g:ale_python_flake8_options = '-m flake8'
 
