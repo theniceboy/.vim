@@ -28,6 +28,7 @@ map S :w<CR>
 
 " Insert Key
 noremap k i
+noremap K I
 
 " Arr
 noremap u gk
@@ -37,12 +38,12 @@ noremap l u
 noremap i l
 
 " Window management
-map fw <C-w>w
-map fu <C-w>k
-map fe <C-w>j
-map fn <C-w>h
-map fi <C-w>l
-map fr <C-w>r
+map W <C-w>w
+map U <C-w>k
+map E <C-w>j
+map N <C-w>h
+map I <C-w>l
+map R <C-w>r
 map su :set nosplitbelow<CR>:split<CR>
 map se :set splitbelow<CR>:split<CR>
 map sn :set nosplitright<CR>:vsplit<CR>
@@ -167,9 +168,9 @@ let NERDTreeMapChangeRoot = "y"
 map m :MinimapUpdate<CR>:MinimapToggle<CR>
 
 " ale
-" let b:ale_python_flake8_executable = "python3"
-" let g:ale_python_flake8_executable = 'python'
-" let g:ale_python_flake8_options = '-m flake8'
+let b:ale_python_flake8_executable = "python3"
+let g:ale_python_flake8_executable = 'python'
+let g:ale_python_flake8_options = '-m flake8'
 
 noremap b :AirlineTheme random<CR>
 " hybridline

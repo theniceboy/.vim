@@ -18,9 +18,9 @@ alias vim='/Applications/MacVim.app/Contents/bin/mvim -v'
 
 **`k`** : to switch to **`INSERT`** : mode, equals to key `i`
 
-**`q`** : quit current vim window, equals to command `:q`
+**`Q`** : quit current vim window, equals to command `:q`
 
-**`ss`** : save the current file, equals to command `:s`
+**`S`** : save the current file, equals to command `:s`
 
 #### 1.2 Cursor Movement
 
@@ -34,16 +34,16 @@ alias vim='/Applications/MacVim.app/Contents/bin/mvim -v'
 
 ### 2 Window Management
 
-**`fw`** : loop cursor all window in current tab, equals to command (key combination) `Ctrl`+`w` `w`
+**`W`** : loop cursor all window in current tab, equals to command (key combination) `Ctrl`+`w` `w`
 
-**`fu`** : move cursor to one window up, equals to command (key combination) `Ctrl`+`w` `k`
+**`U`** : move cursor to one window up, equals to command (key combination) `Ctrl`+`w` `k`
 
-**`fe`** : move cursor to one window down, equals to command (key combination) `Ctrl`+`w` `j`
+**`E`** : move cursor to one window down, equals to command (key combination) `Ctrl`+`w` `j`
 
-**`fn`** : move cursor to one window left, equals to command (key combination) `Ctrl`+`w` `h`
+**`N`** : move cursor to one window left, equals to command (key combination) `Ctrl`+`w` `h`
 
-**`fi`** : move cursor to one window right, equals to command (key combination) `Ctrl`+`w` `l`
+**`I`** : move cursor to one window right, equals to command (key combination) `Ctrl`+`w` `l`
 
-**`fr`** : rotate window , equals to command (key combination) `Ctrl`+`w` `r`
+**`R`** : rotate window , equals to command (key combination) `Ctrl`+`w` `r`
 
 
