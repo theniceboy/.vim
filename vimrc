@@ -128,7 +128,7 @@ Plug 'severin-lemaignan/vim-minimap'
 " Plugin 'taglist.vim'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'gabrielelana/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'mkdp#util#install_sync()' }
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 call plug#end()
@@ -181,7 +181,7 @@ let g:ale_python_flake8_options = '-m flake8'
 " MarkdownPreview
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
-let g:mkdp_auto_start = 0
+let g:mkdp_auto_start = 0 
 
 " set to 1, the nvim will auto close current preview window when change
 " from markdown buffer to another buffer
@@ -200,7 +200,7 @@ let g:mkdp_refresh_slow = 0
 let g:mkdp_command_for_global = 0
 
 " set to 1, preview server available to others in your network
-" by default, the server listens on localhost (127.0.0.1)
+" by default, the server listens on localhost (126.0.0.1)
 " default: 0
 let g:mkdp_open_to_the_world = 0
 
