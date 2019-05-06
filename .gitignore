@@ -1,0 +1,7 @@
+view/
+.DS_Store
+plugged/
+sessions/
+syntax/
+autoload/
+
