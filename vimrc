@@ -128,8 +128,8 @@ Plug 'severin-lemaignan/vim-minimap'
 " Plugin 'taglist.vim'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'gabrielelana/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'mkdp#util#install_sync()' }
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() } }
+
 
 call plug#end()
 
