@@ -17,10 +17,14 @@ set incsearch
 set ignorecase
 set smartcase
 
-set splitright
-set splitbelow
+set nosplitright
+set nosplitbelow
 
+" Disabling the default s key
 noremap s z
+
+" Set <LEADER> as <SPACE>
+let mapleader=" "
 
 " Save & quit
 map Q :q<CR>
@@ -45,9 +49,9 @@ map N <C-w>h
 map I <C-w>l
 map R <C-w>r
 map su :set nosplitbelow<CR>:split<CR>
-map se :set splitbelow<CR>:split<CR>
+map se :set splitbelow<CR>:split<CR>:set nosplitbelow<CR>
 map sn :set nosplitright<CR>:vsplit<CR>
-map si :set splitright<CR>:vsplit<CR>
+map si :set splitright<CR>:vsplit<CR>:set nosplitright<CR>
 
 " Tab management
 map tu :tabe<CR>
@@ -62,31 +66,28 @@ map <CR> :nohlsearch<CR>
 " Compile function
 map r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
-        exec "w"
-if &filetype == 'c'
-            exec "!g++ % -o %<"
-            exec "!time ./%<"
-elseif &filetype == 'cpp'
-            exec "!g++ % -o %<"
-            exec "!time ./%<"
-elseif &filetype == 'java'
-            exec "!javac %"
-            exec "!time java %<"
-elseif &filetype == 'sh'
-            :!time bash %
-elseif &filetype == 'python'
-            exec "!time python3 %"
-elseif &filetype == 'html'
-            exec "!firefox % &"
-elseif &filetype == 'go'
-    "        exec "!go build %<"
-            exec "!time go run %"
-elseif &filetype == 'mkd'
-            exec "!~/.vim/markdown.pl % > %.html &"
-            exec "!firefox %.html &"
-endif
-    endfunc
-
+  exec "w"
+  if &filetype == 'c'
+    exec "!g++ % -o %<"
+    exec "!time ./%<"
+  elseif &filetype == 'cpp'
+    exec "!g++ % -o %<"
+    exec "!time ./%<"
+  elseif &filetype == 'java'
+    exec "!javac %"
+    exec "!time java %<"
+  elseif &filetype == 'sh'
+    :!time bash %
+  elseif &filetype == 'python'
+    exec "!time python3 %"
+  elseif &filetype == 'html'
+    exec "!firefox % &"
+  elseif &filetype == 'markdown'
+   " exec "PreviewMarkdown"
+   " exec "tabe"
+   " exec "q"
+  endif
+endfunc
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -119,12 +120,12 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'gko/vim-coloresque'
 Plugin 'mattn/emmet-vim'
-Plugin 'spf13/vim-preview'
-Plugin 'gabrielelana/vim-markdown'
 Plugin 'severin-lemaignan/vim-minimap'
 "Bundle 'Valloric/YouCompleteMe'
 " Plugin 'taglist.vim'
 Plugin 'ron89/thesaurus_query.vim'
+Bundle 'gabrielelana/vim-markdown'
+
 
 call vundle#end()
 filetype plugin indent on
@@ -171,6 +172,11 @@ map m :MinimapUpdate<CR>:MinimapToggle<CR>
 let b:ale_python_flake8_executable = "python3"
 let g:ale_python_flake8_executable = 'python'
 let g:ale_python_flake8_options = '-m flake8'
+
+" MarkdownPreview
+let g:mkdp_auto_start = 1
+let g:mkdp_auto_close = 1
+
 
 noremap b :AirlineTheme random<CR>
 " hybridline
