@@ -1,3 +1,9 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 set number
 syntax on
 set nocompatible
@@ -89,45 +95,43 @@ func! CompileRunGcc()
   endif
 endfunc
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'w0rp/ale'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'dracula/vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'rhysd/conflict-marker.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'bling/vim-bufferline'
-Plugin 'vim-scripts/sessionman.vim'
-Plugin 'mbbill/undotree'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plug 'VundleVim/Vundle.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
+Plug 'vim-syntastic/syntastic'
+Plug 'dracula/vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'rhysd/conflict-marker.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'bling/vim-bufferline'
+Plug 'vim-scripts/sessionman.vim'
+Plug 'mbbill/undotree'
+Plug 'nathanaelkane/vim-indent-guides'
 " Plugin 'vim-scripts/restore_view.vim'
-Plugin 'mhinz/vim-signify'
-Plugin 'osyo-manga/vim-over'
-Plugin 'kana/vim-textobj-user'
-Plugin 'gcmt/wildfire.vim'
-Plugin 'reedes/vim-wordy'
-Plugin 'spf13/PIV'
-Plugin 'elzr/vim-json'
-Plugin 'pangloss/vim-javascript'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'gko/vim-coloresque'
-Plugin 'mattn/emmet-vim'
-Plugin 'severin-lemaignan/vim-minimap'
+Plug 'mhinz/vim-signify'
+Plug 'osyo-manga/vim-over'
+Plug 'kana/vim-textobj-user'
+Plug 'gcmt/wildfire.vim'
+Plug 'reedes/vim-wordy'
+Plug 'spf13/PIV'
+Plug 'elzr/vim-json'
+Plug 'pangloss/vim-javascript'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'gko/vim-coloresque'
+Plug 'mattn/emmet-vim'
+Plug 'severin-lemaignan/vim-minimap'
 "Bundle 'Valloric/YouCompleteMe'
 " Plugin 'taglist.vim'
-Plugin 'ron89/thesaurus_query.vim'
-Bundle 'gabrielelana/vim-markdown'
+Plug 'ron89/thesaurus_query.vim'
+Plug 'gabrielelana/vim-markdown'
 
+call plug#end()
 
-call vundle#end()
 filetype plugin indent on
 colorscheme dracula
 let g:airline_theme='hybridline'
