@@ -123,7 +123,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'gko/vim-coloresque'
 Plug 'mattn/emmet-vim'
-Plug 'severin-lemaignan/vim-minimap'
 "Bundle 'Valloric/YouCompleteMe'
 " Plugin 'taglist.vim'
 Plug 'ron89/thesaurus_query.vim'
@@ -170,13 +169,10 @@ let NERDTreeMapPreview = ""
 let NERDTreeMapCloseDir = "n"
 let NERDTreeMapChangeRoot = "y"
 
-" MiniMap
-map m :MinimapUpdate<CR>:MinimapToggle<CR>
-
 " ale
-let b:ale_python_flake8_executable = "python3"
-let g:ale_python_flake8_executable = 'python'
-let g:ale_python_flake8_options = '-m flake8'
+" let b:ale_python_flake8_executable = "python3"
+" let g:ale_python_flake8_executable = 'python'
+" let g:ale_python_flake8_options = '-m flake8'
 
 " MarkdownPreview
 " set to 1, nvim will open the preview window after entering the markdown buffer
