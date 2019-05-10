@@ -4,6 +4,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" py3 import os; sys.executable=os.path.join(sys.prefix, 'python3')
+
 set number
 syntax on
 set nocompatible
@@ -128,7 +130,7 @@ Plug 'mattn/emmet-vim'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'gabrielelana/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() } }
-
+" Plug 'davidhalter/jedi-vim', { 'commit': '1773837a11f311bd04755c70de363b5000c9cd15' }"
 
 call plug#end()
 
@@ -252,7 +254,6 @@ let g:mkdp_port = ''
 " preview page title
 " ${name} will be replace with the file name
 let g:mkdp_page_title = '「${name}」'
-
 
 
 
