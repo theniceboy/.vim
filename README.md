@@ -85,7 +85,10 @@ NERDTree is a rea
 
 
 **`<SPACE>d`**: Go to definition of the word under cursor 
+
 **`<SPACE>?`**: Go to documentation 
+
 **`<SPACE>t`**: Display type
+
 **`<SPACE>r`**: Go to references
 

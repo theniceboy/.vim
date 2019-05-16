@@ -274,8 +274,6 @@ let g:mkdp_port = ''
 " ${name} will be replace with the file name
 let g:mkdp_page_title = '「${name}」'
 
-
-
 " noremap b :AirlineTheme random<CR>
 " hybridline
 " powerline
