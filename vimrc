@@ -7,6 +7,7 @@ endif
 " py3 import os; sys.executable=os.path.join(sys.prefix, 'python3')
 
 set number
+set cursorline
 syntax on
 set nocompatible
 set laststatus=2
@@ -29,7 +30,7 @@ set nosplitright
 set nosplitbelow
 
 " Disabling the default s key
-noremap s z
+noremap s :echo ""<CR>
 
 " Set <LEADER> as <SPACE>
 let mapleader=" "
@@ -48,14 +49,18 @@ noremap n h
 noremap e gj
 noremap l u
 noremap i l
+noremap U 5gk
+noremap N 5h
+noremap E 5gj
+noremap I 5l
 
 " Window management
-map W <C-w>w
-map U <C-w>k
-map E <C-w>j
-map N <C-w>h
-map I <C-w>l
-map R <C-w>r
+map <Leader>w <C-w>w
+" map <Leader>u <C-w>k
+" map <Leader>e <C-w>j
+" map <Leader>n <C-w>h
+" map <Leader>i <C-w>l
+" map <Leader>r <C-w>r
 map su :set nosplitbelow<CR>:split<CR>
 map se :set splitbelow<CR>:split<CR>:set nosplitbelow<CR>
 map sn :set nosplitright<CR>:vsplit<CR>
@@ -69,7 +74,9 @@ map tmn :-tabmove<CR>
 map tmi :+tabmove<CR>
 
 " Search
-map <CR> :nohlsearch<CR>
+map <LEADER><CR> :nohlsearch<CR>
+noremap = n
+noremap - N
 
 " Compile function
 map r :call CompileRunGcc()<CR>
@@ -87,6 +94,7 @@ func! CompileRunGcc()
   elseif &filetype == 'sh'
     :!time bash %
   elseif &filetype == 'python'
+    exec "clear"
     exec "!time python3 %"
   elseif &filetype == 'html'
     exec "!firefox % &"
@@ -125,7 +133,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'gko/vim-coloresque'
 Plug 'mattn/emmet-vim'
-"Bundle 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 " Plugin 'taglist.vim'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'gabrielelana/vim-markdown'
@@ -170,6 +178,17 @@ let NERDTreeMapOpenInTab = "o"
 let NERDTreeMapPreview = ""
 let NERDTreeMapCloseDir = "n"
 let NERDTreeMapChangeRoot = "y"
+
+" You Complete ME
+nnoremap <LEADER>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <LEADER>? :YcmCompleter GetDoc<CR>
+nnoremap <LEADER>t :YcmCompleter GetType<CR>
+nnoremap <LEADER>r :YcmCompleter GoToReferences<CR>
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_use_clangd = 0
+let g:ycm_python_interpreter_path = '/bin/python3'
+let g:ycm_python_binary_path = '/bin/python3'
+
 
 " ale
 " let b:ale_python_flake8_executable = "python3"
@@ -257,6 +276,6 @@ let g:mkdp_page_title = '「${name}」'
 
 
 
-noremap b :AirlineTheme random<CR>
+" noremap b :AirlineTheme random<CR>
 " hybridline
 " powerline

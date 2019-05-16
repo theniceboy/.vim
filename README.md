@@ -5,6 +5,11 @@
 Mac:
 alias vim='/Applications/MacVim.app/Contents/bin/mvim -v'
 
+## AutoComplete
+
+If you want to use YCM, you need cmake, and execute `sudo python3 [your vim folder]/plugged/install.py`
+
+
 ## Keyboard Shortcuts for `NORMAL` (`COMMAND`) Mode
 
 ### 1 Basic Commands
@@ -30,6 +35,15 @@ alias vim='/Applications/MacVim.app/Contents/bin/mvim -v'
 **`n`** : cursor left, equals to `arrow key left` or `h`
 
 **`i`** : cursor right, equals to `arrowkey right` or `l`
+
+**`U`** : cursor up, equals to `arrow key up 5 terminal lines` or `5gk`
+
+**`E`** : cursor down, equals to `arrow key down 5 terminal lines` or `5gj`
+
+**`N`** : cursor left, equals to `arrow key left 5 places` or `5h`
+
+**`I`** : cursor right, equals to `arrow key right 5 places` or `5l`
+
 
 ### 2 Window Management
 
@@ -66,4 +80,12 @@ NERDTree is a rea
 **`tt`** : Toggle NERDTree
 
 #### 3.2 Navigating in NERDTree
+
+### 4 AutoComplete (YCM)
+
+
+**`<SPACE>d`**: Go to definition of the word under cursor 
+**`<SPACE>?`**: Go to documentation 
+**`<SPACE>t`**: Display type
+**`<SPACE>r`**: Go to references
 
