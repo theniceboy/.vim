@@ -61,36 +61,40 @@ If you want to use YCM, you need cmake, and execute `sudo python3 [your vim fold
 
 #### 2.2 Moving the Cursor Between Different Windows
 
-**`W`** : loop cursor all window in current tab, equals to command (key combination) `Ctrl`+`w` `w`
-
-**`U`** : move cursor to one window up, equals to command (key combination) `Ctrl`+`w` `k`
-
-**`E`** : move cursor to one window down, equals to command (key combination) `Ctrl`+`w` `j`
-
-**`N`** : move cursor to one window left, equals to command (key combination) `Ctrl`+`w` `h`
-
-**`I`** : move cursor to one window right, equals to command (key combination) `Ctrl`+`w` `l`
-
-**`R`** : rotate window , equals to command (key combination) `Ctrl`+`w` `r`
+| Action                         | Shortcut   | Command  |
+|--------------------------------|------------|----------|
+| Move cursor to the next window | `<SPACE>w` | `<C-w>w` |
 
 ### 3 NERDTree
 
-NERDTree is a rea
-
-#### 3.1 Opening and Closing the NERDTree
-
-**`tt`** : Toggle NERDTree
+| Action          | Shortcut | Command           |
+|-----------------|----------|-------------------|
+| Toggle NerdTree | `tt`     | `:NERDTreeToggle` |
 
 #### 3.2 Navigating in NERDTree
 
 ### 4 AutoComplete (YCM)
 
+| Action            | Shortcut | Command                                           |
+|-------------------|----------|---------------------------------------------------|
+| Go to definition  | `gd`     | `:YcmCompleter GoToDefinitionElseDeclaration<CR>` |
+| Get documentation | `g/`     | `:YcmCompleter GetDoc<CR>`                        |
+| Get type          | `gt`     | `:YcmCompleter GetType<CR>`                       |
+| Go to references  | `gr`     | `:YcmCompleter GoToReferences`                    |
 
-**`<SPACE>d`**: Go to definition of the word under cursor 
+### 5 Bookmarks (vim-bookmarks)
 
-**`<SPACE>?`**: Go to documentation 
+| Action                              | Shortcut | Command                 |
+|-------------------------------------|----------|-------------------------|
+| Add/remove bookmark at current line | `mm`     | `:BookmarkToggle<CR>`   |
+| Add/edit/remove annotation          | `mm`     | `:BookmarkAnnotate<CR>` |
+| Jump to the next bookmark in buffer | `mn`     | `:BookmarkNext<CR>`     |
+| Jump to the previous bookmark       | `mp`     | `:BookmarkPrev<CR>`     |
 
-**`<SPACE>t`**: Display type
+For more commands, see [here](https://github.com/MattesGroeger/vim-bookmarks#usage)
 
-**`<SPACE>r`**: Go to references
+### 6 Markdown File Editing
 
+#### 6.1 Edit Table with `vim-table-mode`
+
+Toggle "Table Editing Mode" with `<SPACE>` (equals to command `:TableModeToggle<CR>`)

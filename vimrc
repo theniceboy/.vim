@@ -26,6 +26,7 @@ set shiftwidth=2
 set wrap
 set expandtab
 set autochdir
+set showcmd
 
 set hlsearch
 set incsearch
@@ -155,6 +156,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'f
 Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'connorholyday/vim-snazzy'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
 
@@ -188,10 +191,10 @@ let NERDTreeMapCloseDir = "n"
 let NERDTreeMapChangeRoot = "y"
 
 " You Complete ME
-nnoremap <LEADER>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <LEADER>? :YcmCompleter GetDoc<CR>
-nnoremap <LEADER>t :YcmCompleter GetType<CR>
-nnoremap <LEADER>r :YcmCompleter GoToReferences<CR>
+nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap g/ :YcmCompleter GetDoc<CR>
+nnoremap gt :YcmCompleter GetType<CR>
+nnoremap gr :YcmCompleter GoToReferences<CR>
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_use_clangd = 0
 let g:ycm_python_interpreter_path = '/bin/python3'
@@ -235,6 +238,9 @@ let g:python_highlight_all = 1
 
 " Taglist
 map <silent> T :TagbarOpenAutoClose<CR>
+
+" vim-table-mode
+map <LEADER>tm = :TableModeToggle<CR>
 
 " noremap b :AirlineTheme random<CR>
 " hybridline
