@@ -1,11 +1,14 @@
+" todos
+" - Git
+
+" Auto load for first time uses
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" py3 import os; sys.executable=os.path.join(sys.prefix, 'python3')
-
+" editor setup
 set number
 set ruler
 set cursorline
@@ -28,9 +31,6 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-
-set nosplitright
-set nosplitbelow
 
 let g:indent_guides_enable_on_vim_startup = 1
 set indentexpr=
@@ -70,6 +70,7 @@ noremap N 5h
 noremap E 5gj
 noremap I 5l
 
+" Disaoble Arrow keys. WE DO NOT NEED THEM
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -121,11 +122,10 @@ func! CompileRunGcc()
     exec "!firefox % &"
   elseif &filetype == 'markdown'
     exec "MarkdownPreview"
-   " exec "tabe"
-   " exec "q"
   endif
 endfunc
 
+" Install Plugins with Vim-Plug
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -149,19 +149,18 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'gko/vim-coloresque'
 Plug 'mattn/emmet-vim'
 Plug 'Valloric/YouCompleteMe'
-" Plugin 'taglist.vim'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for': 'markdown' }
 Plug 'vim-python/python-syntax', { 'for': 'python' }
 Plug 'connorholyday/vim-snazzy'
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 
 call plug#end()
 
+" Set Visuals
 colorscheme snazzy
 let g:airline_theme='dracula'
-" let g:airline_theme='dracula'
 
 let g:lightline = {
   \     'active': {
@@ -205,61 +204,15 @@ let g:ycm_python_binary_path = '/bin/python3'
 " let g:ale_python_flake8_options = '-m flake8'
 
 " MarkdownPreview
-" set to 1, nvim will open the preview window after entering the markdown buffer
-" default: 0
 let g:mkdp_auto_start = 0 
-
-" set to 1, the nvim will auto close current preview window when change
-" from markdown buffer to another buffer
-" default: 1
 let g:mkdp_auto_close = 1
-
-" set to 1, the vim will refresh markdown when save the buffer or
-" leave from insert mode, default 0 is auto refresh markdown as you edit or
-" move the cursor
-" default: 0
 let g:mkdp_refresh_slow = 0
-
-" set to 1, the MarkdownPreview command can be use for all files,
-" by default it can be use in markdown file
-" default: 0
 let g:mkdp_command_for_global = 0
-
-" set to 1, preview server available to others in your network
-" by default, the server listens on localhost (126.0.0.1)
-" default: 0
 let g:mkdp_open_to_the_world = 0
-
-" use custom IP to open preview page
-" useful when you work in remote vim and preview on local browser
-" more detail see: https://github.com/iamcco/markdown-preview.nvim/pull/9
-" default empty
 let g:mkdp_open_ip = ''
-
-" specify browser to open preview page
-" default: ''
 let g:mkdp_browser = ''
-
-" set to 1, echo preview page url in command line when open preview page
-" default is 0
 let g:mkdp_echo_preview_url = 0
-
-" a custom vim function name to open preview page
-" this function will receive url as param
-" default is empty
 let g:mkdp_browserfunc = ''
-
-" options for markdown render
-" mkit: markdown-it options for render
-" katex: katex options for math
-" uml: markdown-it-plantuml options
-" maid: mermaid options
-" disable_sync_scroll: if disable sync scroll, default 0
-" sync_scroll_type: 'middle', 'top' or 'relative', default value is 'middle'
-"   middle: mean the cursor position alway show at the middle of the preview page
-"   top: mean the vim top viewport alway show at the top of the preview page
-"   relative: mean the cursor position alway show at the relative positon of the preview page
-" hide_yaml_meta: if hide yaml metadata, default is 1
 let g:mkdp_preview_options = {
     \ 'mkit': {},
     \ 'katex': {},
@@ -269,18 +222,9 @@ let g:mkdp_preview_options = {
     \ 'sync_scroll_type': 'middle',
     \ 'hide_yaml_meta': 1
     \ }
-
-" use a custom markdown style must be absolute path
 let g:mkdp_markdown_css = ''
-
-" use a custom highlight style must absolute path
 let g:mkdp_highlight_css = ''
-
-" use a custom port to start server or random for empty
 let g:mkdp_port = ''
-
-" preview page title
-" ${name} will be replace with the file name
 let g:mkdp_page_title = '「${name}」'
 
 
