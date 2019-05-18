@@ -7,14 +7,17 @@ endif
 " py3 import os; sys.executable=os.path.join(sys.prefix, 'python3')
 
 set number
+set ruler
 set cursorline
 syntax on
+syntax enable
 set nocompatible
 set laststatus=2
 set mouse=a
 filetype on
 filetype indent on
 filetype plugin on
+filetype plugin indent on
 set tabstop=2
 set shiftwidth=2
 set wrap
@@ -28,6 +31,19 @@ set smartcase
 
 set nosplitright
 set nosplitbelow
+
+let g:indent_guides_enable_on_vim_startup = 1
+set indentexpr=
+
+set autoindent
+set smartindent
+set backspace=indent,eol,start
+
+" Restore Cursor Position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 
 " Disabling the default s key
 noremap s :echo ""<CR>
@@ -53,6 +69,11 @@ noremap U 5gk
 noremap N 5h
 noremap E 5gj
 noremap I 5l
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
 " Window management
 map <Leader>w <C-w>w
@@ -107,44 +128,39 @@ endfunc
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 Plug 'vim-syntastic/syntastic'
-Plug 'dracula/vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'rhysd/conflict-marker.vim'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'bling/vim-bufferline'
 Plug 'vim-scripts/sessionman.vim'
-Plug 'mbbill/undotree'
 Plug 'nathanaelkane/vim-indent-guides'
-" Plugin 'vim-scripts/restore_view.vim'
 Plug 'mhinz/vim-signify'
-Plug 'osyo-manga/vim-over'
 Plug 'kana/vim-textobj-user'
 Plug 'gcmt/wildfire.vim'
 Plug 'reedes/vim-wordy'
-Plug 'spf13/PIV'
+Plug 'spf13/PIV', { 'for': 'php' }
 Plug 'elzr/vim-json'
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'hail2u/vim-css3-syntax'
 Plug 'gko/vim-coloresque'
 Plug 'mattn/emmet-vim'
 Plug 'Valloric/YouCompleteMe'
 " Plugin 'taglist.vim'
 Plug 'ron89/thesaurus_query.vim'
-Plug 'gabrielelana/vim-markdown'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() } }
-" Plug 'davidhalter/jedi-vim', { 'commit': '1773837a11f311bd04755c70de363b5000c9cd15' }"
+Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for': 'markdown' }
+Plug 'vim-python/python-syntax', { 'for': 'python' }
+Plug 'connorholyday/vim-snazzy'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
-filetype plugin indent on
-colorscheme dracula
-let g:airline_theme='hybridline'
+colorscheme snazzy
+let g:airline_theme='dracula'
 " let g:airline_theme='dracula'
 
 let g:lightline = {
@@ -153,13 +169,6 @@ let g:lightline = {
   \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
   \     }
   \ }
-
-let g:indent_guides_enable_on_vim_startup = 1
-set indentexpr=
-
-set autoindent
-set smartindent
-set backspace=indent,eol,start
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -273,6 +282,15 @@ let g:mkdp_port = ''
 " preview page title
 " ${name} will be replace with the file name
 let g:mkdp_page_title = '「${name}」'
+
+
+" Python-syntax
+let g:python_highlight_all = 1
+" let g:python_slow_sync = 0
+
+
+" Taglist
+map <silent> T :TagbarOpenAutoClose<CR>
 
 " noremap b :AirlineTheme random<CR>
 " hybridline

@@ -5,6 +5,8 @@
 Mac:
 alias vim='/Applications/MacVim.app/Contents/bin/mvim -v'
 
+You need `ctags` for function/class/variable list
+
 ## AutoComplete
 
 If you want to use YCM, you need cmake, and execute `sudo python3 [your vim folder]/plugged/install.py`
@@ -24,7 +26,7 @@ If you want to use YCM, you need cmake, and execute `sudo python3 [your vim fold
 
 **_IMPORTANT_**
 
-  Since the `k` key has been mapped to `i`, every command (combination) that involves `i` should use `k` instead (for example, `ciw` should be `ckw`).
+  Since the `i` key has been mapped to `k`, every command (combination) that involves `i` should use `k` instead (for example, `ciw` should be `ckw`).
 
 #### 1.2 Cursor Movement
 
