@@ -158,6 +158,7 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
@@ -242,6 +243,8 @@ map <silent> T :TagbarOpenAutoClose<CR>
 " vim-table-mode
 map <LEADER>tm = :TableModeToggle<CR>
 
+" CtrlP
+map <C-p> :CtrlP<CR>
 " noremap b :AirlineTheme random<CR>
 " hybridline
 " powerline
