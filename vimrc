@@ -70,9 +70,9 @@ noremap e gj
 noremap l u
 noremap i l
 noremap U 5gk
-noremap N 5h
+noremap N 0
 noremap E 5gj
-noremap I 5l
+noremap I $
 
 " Disaoble Arrow keys. WE DO NOT NEED THEM
 map <up> <nop>
@@ -101,8 +101,8 @@ map tmi :+tabmove<CR>
 
 " Search
 map <LEADER><CR> :nohlsearch<CR>
-noremap = n
-noremap - N
+noremap = nzz
+noremap - Nzz
 
 " Compile function
 autocmd Filetype vim map R :source $MYVIMRC<CR>
@@ -261,3 +261,4 @@ let g:SimpylFold_docstring_preview = 1
 " noremap b :AirlineTheme random<CR>
 " hybridline
 " powerline
+
