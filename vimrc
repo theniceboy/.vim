@@ -143,17 +143,17 @@ Plug 'mhinz/vim-signify'
 Plug 'kana/vim-textobj-user'
 Plug 'gcmt/wildfire.vim'
 Plug 'reedes/vim-wordy'
-Plug 'spf13/PIV', { 'for': 'php' }
+Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
 Plug 'elzr/vim-json'
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for' :['javascript', 'vim-plug'] }
 Plug 'hail2u/vim-css3-syntax'
 Plug 'gko/vim-coloresque'
 Plug 'mattn/emmet-vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'ron89/thesaurus_query.vim'
-Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for': 'markdown' }
-Plug 'vim-python/python-syntax', { 'for': 'python' }
+Plug 'gabrielelana/vim-markdown', { 'for' :['markdown', 'vim-plug'] }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
+Plug 'vim-python/python-syntax', { 'for' :['python', 'vim-plug'] }
 Plug 'connorholyday/vim-snazzy'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 Plug 'MattesGroeger/vim-bookmarks'
