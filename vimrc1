@@ -140,6 +140,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
+Plug 'vim-syntastic/syntastic', { 'for': '333' }
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'bling/vim-bufferline'
@@ -167,7 +168,7 @@ Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
-Plug 'ntpeters/vim-better-whitespace' " after :EnableWhitespace, vim slows down
+Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()
 
@@ -267,7 +268,7 @@ map <C-p> :CtrlP
 let g:SimpylFold_docstring_preview = 1
 
 " vim-better-whitespace
-" map <LEADER><LEADER> :ToggleWhitespace<CR>
+autocmd VimEnter * EnableWhitespace
 
 " noremap b :AirlineTheme random<CR>
 " hybridline
