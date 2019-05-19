@@ -34,12 +34,14 @@ set incsearch
 set ignorecase
 set smartcase
 
-let g:indent_guides_enable_on_vim_startup = 1
 set indentexpr=
 
 set autoindent
 set smartindent
 set backspace=indent,eol,start
+
+set splitright
+set splitbelow
 
 " Restore Cursor Position
 if has("autocmd")
@@ -161,6 +163,8 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'godlygeek/tabular'
 
 call plug#end()
 
@@ -203,6 +207,10 @@ let g:ycm_use_clangd = 0
 let g:ycm_python_interpreter_path = '/bin/python3'
 let g:ycm_python_binary_path = '/bin/python3'
 
+" vim-indent-guide
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_color_change_percent = 3
 
 " ale
 " let b:ale_python_flake8_executable = "python3"
@@ -247,6 +255,9 @@ map <LEADER>tm :TableModeToggle<CR>
 
 " CtrlP
 map <C-p> :CtrlP
+
+" Simpylfold
+let g:SimpylFold_docstring_preview = 1
 " noremap b :AirlineTheme random<CR>
 " hybridline
 " powerline
