@@ -103,6 +103,7 @@ noremap = n
 noremap - N
 
 " Compile function
+autocmd Filetype vim map R :source $MYVIMRC<CR>
 map r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
   exec "w"
@@ -159,6 +160,7 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
