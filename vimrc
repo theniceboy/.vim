@@ -10,6 +10,7 @@ endif
 
 " editor setup
 set number
+set relativenumber
 set ruler
 set cursorline
 syntax on
@@ -157,8 +158,8 @@ Plug 'vim-python/python-syntax', { 'for' :['python', 'vim-plug'] }
 Plug 'connorholyday/vim-snazzy'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'kien/ctrlp.vim'
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
 
 call plug#end()
 
@@ -241,10 +242,10 @@ let g:python_highlight_all = 1
 map <silent> T :TagbarOpenAutoClose<CR>
 
 " vim-table-mode
-map <LEADER>tm = :TableModeToggle<CR>
+map <LEADER>tm :TableModeToggle<CR>
 
 " CtrlP
-map <C-p> :CtrlP<CR>
+map <C-p> :CtrlP
 " noremap b :AirlineTheme random<CR>
 " hybridline
 " powerline
