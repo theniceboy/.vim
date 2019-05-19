@@ -152,7 +152,6 @@ Plug 'gko/vim-coloresque'
 Plug 'mattn/emmet-vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'ron89/thesaurus_query.vim'
-Plug 'gabrielelana/vim-markdown', { 'for' :['markdown', 'vim-plug'] }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 Plug 'vim-python/python-syntax', { 'for' :['python', 'vim-plug'] }
 Plug 'connorholyday/vim-snazzy'
