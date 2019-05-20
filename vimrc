@@ -1,5 +1,5 @@
 " todos
-" - Git
+" - hotkey to switch between light theme and dark theme
 
 " Auto load for first time uses
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -106,6 +106,9 @@ noremap - Nzz
 
 " Spelling Check
 map <LEADER>sc :set spell!<CR>
+
+" Jump
+map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4i
 
 " Compile function
 autocmd Filetype vim map R :source $MYVIMRC<CR>
