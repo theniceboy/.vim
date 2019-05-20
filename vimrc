@@ -182,7 +182,7 @@ call plug#end()
 let has_machine_specific_file = 1
 if empty(glob('~/.vim/_machine_specific.vim'))
   let has_machine_specific_file = 0
-  exec "!cp ~/.vim/_machine_specific_default.vim ~/.vim/_machine_specific.vim"
+  exec "!cp ~/.vim/default_configs/_machine_specific_default.vim ~/.vim/_machine_specific.vim"
 endif
 source ~/.vim/_machine_specific.vim
 
@@ -236,16 +236,11 @@ let g:ycm_python_binary_path = g:ycm_python_interpreter_path
 " vim-indent-guide
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_color_change_percent = 3
+let g:indent_guides_color_change_percent = 1
 
 " ale
-" Check Python files with flake8 and pylint.
 let b:ale_linters = ['pylint']
-" Fix Python files with autopep8 and yapf.
 let b:ale_fixers = ['autopep8', 'yapf']
-" let b:ale_python_flake8_executable = "python3"
-" let g:ale_python_flake8_executable = 'python'
-" let g:ale_python_flake8_options = '-m flake8'
 
 " MarkdownPreview
 let g:mkdp_auto_start = 0
