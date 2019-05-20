@@ -13,8 +13,9 @@ set number
 set relativenumber
 set ruler
 set cursorline
-syntax on
-syntax enable
+if !exists("g:syntax_on")
+  syntax enable
+endif
 set nocompatible
 set laststatus=2
 set mouse=a
@@ -173,8 +174,18 @@ Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 Plug 'ntpeters/vim-better-whitespace', { 'on': ['EnableWhitespace', 'ToggleWhitespace'] } " after :EnableWhitespace, vim slows down
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'junegunn/goyo.vim'
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
+
+let has_machine_specific_file = 1
+if empty(glob('~/.vim/_machine_specific.vim'))
+  let has_machine_specific_file = 0
+  exec "!cp ~/.vim/_machine_specific_default.vim ~/.vim/_machine_specific.vim"
+endif
+source ~/.vim/_machine_specific.vim
+
 
 " dress up my vim
 map <LEADER>c1 :set background=dark<CR>:colorscheme snazzy<CR>:AirlineTheme dracula<CR>
@@ -217,9 +228,7 @@ nnoremap gt :YcmCompleter GetType<CR>
 nnoremap gr :YcmCompleter GoToReferences<CR>
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_use_clangd = 0
-let g:ycm_python_interpreter_path = "bin/python3"
-let g:ycm_python_binary_path = "/bin/python3"
-
+let g:ycm_python_binary_path = g:ycm_python_interpreter_path
 "let g:ycm_python_interpreter_path = system('which python3')
 "let g:ycm_python_binary_path = system('which python3')
 
@@ -285,7 +294,14 @@ let g:better_whitespace_enabled=0
 
 " map <LEADER><LEADER> :ToggleWhitespace<CR>
 
+" Goyo
+map <LEADER>gy :Goyo<CR>
+
 " noremap b :AirlineTheme random<CR>
 " hybridline
 " powerline
+
+if has_machine_specific_file == 0
+  exec "e ~/.vim/_machine_specific.vim"
+endif
 

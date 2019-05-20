@@ -16,7 +16,7 @@ If you want to use YCM, you need cmake, and execute `sudo python3 [your vim fold
 
 ### 1 Basic Commands
 
-#### 1.1 The Most Basics 
+#### 1.1 The Most Basics
 
 **`k`** : to switch to **`INSERT`** : mode, equals to key `i`
 
@@ -46,6 +46,12 @@ If you want to use YCM, you need cmake, and execute `sudo python3 [your vim fold
 
 **`I`** : cursor right, equals to `arrow key right 5 places` or `5l`
 
+#### 1.3 Some Other Commands That Your Moms Don't Tell You
+
+| Command | What it does                       |
+|---------|------------------------------------|
+| `<C-i>` | Go to the next cursor position     |
+| `<C-O>` | Go to the previous cursor position |
 
 ### 2 Window Management
 
