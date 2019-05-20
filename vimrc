@@ -22,6 +22,7 @@ filetype on
 filetype indent on
 filetype plugin on
 filetype plugin indent on
+
 set tabstop=2
 set shiftwidth=2
 set wrap
@@ -171,8 +172,13 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
 Plug 'ntpeters/vim-better-whitespace' " after :EnableWhitespace, vim slows down
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
+
+" dress up my vim
+map <LEADER>c1 :set background=dark<CR>:colorscheme snazzy<CR>:AirlineTheme dracula<CR>
+map <LEADER>c2 :set background=light<CR>:colorscheme papercolor<CR>:AirlineTheme papercolor<CR>
 
 " Set Visuals
 colorscheme snazzy
