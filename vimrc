@@ -88,10 +88,10 @@ map <Leader>w <C-w>w
 " map <Leader>n <C-w>h
 " map <Leader>i <C-w>l
 " map <Leader>r <C-w>r
-map su :set nosplitbelow<CR>:split<CR>
-map se :set splitbelow<CR>:split<CR>:set nosplitbelow<CR>
-map sn :set nosplitright<CR>:vsplit<CR>
-map si :set splitright<CR>:vsplit<CR>:set nosplitright<CR>
+map su :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
+map se :set splitbelow<CR>:split<CR>
+map sn :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+map si :set splitright<CR>:vsplit<CR>
 
 " Tab management
 map tu :tabe<CR>
@@ -171,17 +171,18 @@ Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
-Plug 'ntpeters/vim-better-whitespace' " after :EnableWhitespace, vim slows down
+Plug 'ntpeters/vim-better-whitespace', { 'on': ['EnableWhitespace', 'ToggleWhitespace'] } " after :EnableWhitespace, vim slows down
 Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
 " dress up my vim
 map <LEADER>c1 :set background=dark<CR>:colorscheme snazzy<CR>:AirlineTheme dracula<CR>
-map <LEADER>c2 :set background=light<CR>:colorscheme papercolor<CR>:AirlineTheme papercolor<CR>
+map <LEADER>c2 :set background=light<CR>:colorscheme PaperColor<CR>:AirlineTheme PaperColor<CR>
 
 " Set Visuals
 colorscheme snazzy
+set background=dark
 let g:airline_theme='dracula'
 
 let g:lightline = {
@@ -216,8 +217,12 @@ nnoremap gt :YcmCompleter GetType<CR>
 nnoremap gr :YcmCompleter GoToReferences<CR>
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_use_clangd = 0
-let g:ycm_python_interpreter_path = '/usr/local/bin/python3'
-let g:ycm_python_binary_path = '/usr/local/bin/python3'
+let g:ycm_python_interpreter_path = "bin/python3"
+let g:ycm_python_binary_path = "/bin/python3"
+
+"let g:ycm_python_interpreter_path = system('which python3')
+"let g:ycm_python_binary_path = system('which python3')
+
 
 " vim-indent-guide
 let g:indent_guides_guide_size = 1
@@ -226,7 +231,7 @@ let g:indent_guides_color_change_percent = 3
 
 " ale
 " Check Python files with flake8 and pylint.
-let b:ale_linters = ['flake8', 'pylint']
+let b:ale_linters = ['pylint']
 " Fix Python files with autopep8 and yapf.
 let b:ale_fixers = ['autopep8', 'yapf']
 " let b:ale_python_flake8_executable = "python3"
@@ -276,6 +281,8 @@ map <C-p> :CtrlP
 let g:SimpylFold_docstring_preview = 1
 
 " vim-better-whitespace
+let g:better_whitespace_enabled=0
+
 " map <LEADER><LEADER> :ToggleWhitespace<CR>
 
 " noremap b :AirlineTheme random<CR>
