@@ -56,22 +56,26 @@
 
 #### 1.3 Some Other Commands That Your Moms Don't Tell You
 
-| Command | What it does                       |
-|---------|------------------------------------|
-| `<C-i>` | Go to the next cursor position     |
-| `<C-o>` | Go to the previous cursor position |
+| Command | What it does                          |
+|---------|---------------------------------------|
+| `<C-i>` | Go to the next cursor position        |
+| `<C-o>` | Go to the previous cursor position    |
+| `<C-a>` | Increase the number under cursor by 1 |
+| `<C-x>` | Decrease the number under cursor by 1 |
+
 
 ### 2 Window Management
 
 #### 2.1 Creating Window Through Split Screen
 
-**`su`** : Create a new horizontal split screen and place it above the current window
-
-**`se`** : Create a new horizontal split screen and place it below the current window
-
-**`sn`** : Create a new vertical split screen and place it left to the current window
-
-**`si`** : Create a new vertical split screen and place it right to the current window
+| Command | What it does                                                                |
+|---------|-----------------------------------------------------------------------------|
+| `su`    | Create a new horizontal split screen and place it above the current window  |
+| `se`    | Create a new horizontal split screen and place it below the current window  |
+| `sn`    | Create a new vertical split screen and place it left to the current window  |
+| `si`    | Create a new vertical split screen and place it right to the current window |
+| `sv`    | Set the two splits to be vertical                                           |
+| `sh     | Set the two splits to be horizontal                                         |
 
 #### 2.2 Moving the Cursor Between Different Windows
 
@@ -79,13 +83,21 @@
 |--------------------------------|------------|----------|
 | Move cursor to the next window | `<SPACE>w` | `<C-w>w` |
 
-### 3 NERDTree
+### 3 Opening/Locating a File
+
+#### 3.1 NERDTree
 
 | Action          | Shortcut | Command           |
 |-----------------|----------|-------------------|
 | Toggle NerdTree | `tt`     | `:NERDTreeToggle` |
 
-#### 3.2 Navigating in NERDTree
+
+#### 3.2 CtrlP (the fuzzy file finder)
+
+| Action           | Shortcut   | Command      |
+| Active CtrlP     | `Ctrl` `p` | `:CtrlP<CR>` |
+| Move up 1 item   | `Ctrl` `u` |              |
+| Move down 1 item | `Ctrl` `e` |              |
 
 ### 4 AutoComplete (YCM)
 
@@ -96,7 +108,7 @@
 | Get type          | `gt`     | `:YcmCompleter GetType<CR>`                       |
 | Go to references  | `gr`     | `:YcmCompleter GoToReferences`                    |
 
-### 5 Bookmarks (vim-bookmarks)
+### 6 Bookmarks (vim-bookmarks)
 
 | Action                              | Shortcut | Command                 |
 |-------------------------------------|----------|-------------------------|
@@ -112,3 +124,4 @@ For more commands, see [here](https://github.com/MattesGroeger/vim-bookmarks#usa
 #### 6.1 Edit Table with `vim-table-mode`
 
 Toggle "Table Editing Mode" with `<SPACE>` (equals to command `:TableModeToggle<CR>`)
+

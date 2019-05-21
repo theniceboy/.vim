@@ -31,6 +31,8 @@ set expandtab
 set autochdir
 set showcmd
 
+set encoding=utf-8
+
 set hlsearch
 set incsearch
 set ignorecase
@@ -48,6 +50,8 @@ set splitbelow
 set foldmethod=indent
 set foldlevel=99
 
+set clipboard=unnamed
+
 " Restore Cursor Position
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -59,6 +63,9 @@ noremap s :echo ""<CR>
 
 " Set <LEADER> as <SPACE>
 let mapleader=" "
+
+" Press ; as :
+noremap ; :
 
 " Save & quit
 map Q :q<CR>
@@ -91,10 +98,10 @@ noremap L U
 inoremap <C-l> <C-u>
 
 " Disable Arrow keys. WE DO NOT NEED THEM
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+map <up> 5<C-w>+
+map <down> 5<C-w>-
+map <left> 5<C-w>>
+map <right> 5<C-w><
 
 " Window management
 map <Leader>w <C-w>w
@@ -108,12 +115,21 @@ map se :set splitbelow<CR>:split<CR>
 map sn :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 map si :set splitright<CR>:vsplit<CR>
 
+noremap sh <C-w>t<C-w>K
+noremap sv <C-w>t<C-w>H
+
+
 " Tab management
 map tu :tabe<CR>
 map tn :-tabnext<CR>
 map ti :+tabnext<CR>
 map tmn :-tabmove<CR>
 map tmi :+tabmove<CR>
+
+" Column (:) mods
+map ; :
+map <LEADER>/ :!
+map <LEADER>sr :%s/
 
 " Search
 map <LEADER><CR> :nohlsearch<CR>
@@ -164,6 +180,7 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'bling/vim-bufferline'
 Plug 'vim-scripts/sessionman.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'mhinz/vim-signify'
 Plug 'kana/vim-textobj-user'
 Plug 'gcmt/wildfire.vim'
@@ -182,7 +199,7 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
+Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
@@ -293,7 +310,7 @@ map <silent> T :TagbarOpenAutoClose<CR>
 map <LEADER>tm :TableModeToggle<CR>
 
 " CtrlP
-map <C-p> :CtrlP
+map <C-p> :CtrlP<CR>
 
 " vim-better-whitespace
 let g:better_whitespace_enabled=0
@@ -303,6 +320,11 @@ let g:better_whitespace_enabled=0
 " Goyo
 map <LEADER>gy :Goyo<CR>
 
+" CtrlP
+let g:ctrlp_prompt_mappings = {
+  \ 'PrtSelectMove("j")':   ['<c-e>', '<down>'],
+  \ 'PrtSelectMove("k")':   ['<c-u>', '<up>'],
+  \ }
 " noremap b :AirlineTheme random<CR>
 " hybridline
 " powerline
