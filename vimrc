@@ -45,6 +45,9 @@ set backspace=indent,eol,start
 set splitright
 set splitbelow
 
+set foldmethod=indent
+set foldlevel=99
+
 " Restore Cursor Position
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -280,9 +283,6 @@ map <LEADER>tm :TableModeToggle<CR>
 
 " CtrlP
 map <C-p> :CtrlP
-
-" Simpylfold
-let g:SimpylFold_docstring_preview = 1
 
 " vim-better-whitespace
 let g:better_whitespace_enabled=0
