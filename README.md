@@ -111,6 +111,8 @@
 | Get type          | `gt`     | `:YcmCompleter GetType<CR>`                       |
 | Go to references  | `gr`     | `:YcmCompleter GoToReferences`                    |
 
+### 5 Undotree
+
 ### 6 Bookmarks (vim-signiture)
 
 | Action                          | Shortcut    | Command |
@@ -121,9 +123,9 @@
 
 For more commands, see [here](https://github.com/MattesGroeger/vim-bookmarks#usage)
 
-### 6 Markdown File Editing
+### 7 Markdown File Editing
 
-#### 6.1 Edit Table with `vim-table-mode`
+#### 7.1 Edit Table with `vim-table-mode`
 
 Toggle "Table Editing Mode" with `<SPACE>` (equals to command `:TableModeToggle<CR>`)
 

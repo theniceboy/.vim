@@ -214,6 +214,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'kshenoy/vim-signature'
+Plug 'mbbill/undotree/'
 
 call plug#end()
 
@@ -361,6 +362,10 @@ let g:SignatureMap = {
 
 " hybridline
 " powerline
+
+" Undotree
+let g:undotree_DiffAutoOpen = 0
+map L :UndotreeToggle<CR>
 
 if has_machine_specific_file == 0
   exec "e ~/.vim/_machine_specific.vim"
