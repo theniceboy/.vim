@@ -9,13 +9,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " editor setup
+set wildmenu
 set number
 set relativenumber
 set ruler
 set cursorline
-if !exists("g:syntax_on")
-  syntax enable
-endif
+syntax enable
+syntax on
 set nocompatible
 set laststatus=2
 set mouse=a
@@ -24,10 +24,12 @@ filetype indent on
 filetype plugin on
 filetype plugin indent on
 
+set expandtab
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
+
 set wrap
-set expandtab
 set autochdir
 set showcmd
 
@@ -57,7 +59,6 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-
 " Disabling the default s key
 noremap s :echo ""<CR>
 
@@ -70,6 +71,9 @@ noremap ; :
 " Save & quit
 map Q :q<CR>
 map S :w<CR>
+
+" Open the vimrc file anytime
+map <LEADER>rc :e ~/.vim/vimrc<CR>
 
 " Insert Key
 noremap k i
@@ -91,6 +95,8 @@ noremap <C-E> 5<C-e>
 "inoremap <C-e> <Esc><C-e>a
 inoremap <C-U> <Esc>5<C-y>a
 inoremap <C-E> <Esc>5<C-e>a
+
+noremap h e
 
 " Basic operations
 noremap l u
@@ -197,7 +203,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'f
 Plug 'vim-python/python-syntax', { 'for' :['python', 'vim-plug'] }
 Plug 'connorholyday/vim-snazzy'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
-Plug 'MattesGroeger/vim-bookmarks'
+"Plug 'MattesGroeger/vim-bookmarks'
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'tpope/vim-surround'
@@ -207,6 +213,7 @@ Plug 'ntpeters/vim-better-whitespace', { 'on': ['EnableWhitespace', 'ToggleWhite
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'kshenoy/vim-signature'
 
 call plug#end()
 
@@ -266,6 +273,7 @@ let g:ycm_python_binary_path = g:ycm_python_interpreter_path
 
 " vim-indent-guide
 let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_color_change_percent = 1
 
@@ -326,6 +334,31 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtSelectMove("k")':   ['<c-u>', '<up>'],
   \ }
 " noremap b :AirlineTheme random<CR>
+
+let g:SignatureMap = {
+        \ 'Leader'             :  "m",
+        \ 'PlaceNextMark'      :  "m,",
+        \ 'ToggleMarkAtLine'   :  "m.",
+        \ 'PurgeMarksAtLine'   :  "dm-",
+        \ 'DeleteMark'         :  "dm",
+        \ 'PurgeMarks'         :  "dm/",
+        \ 'PurgeMarkers'       :  "dm?",
+        \ 'GotoNextLineAlpha'  :  "m<LEADER>",
+        \ 'GotoPrevLineAlpha'  :  "'[",
+        \ 'GotoNextSpotAlpha'  :  "m<LEADER>",
+        \ 'GotoPrevSpotAlpha'  :  "`[",
+        \ 'GotoNextLineByPos'  :  "]'",
+        \ 'GotoPrevLineByPos'  :  "['",
+        \ 'GotoNextSpotByPos'  :  "mn",
+        \ 'GotoPrevSpotByPos'  :  "mp",
+        \ 'GotoNextMarker'     :  "[+",
+        \ 'GotoPrevMarker'     :  "[-",
+        \ 'GotoNextMarkerAny'  :  "]=",
+        \ 'GotoPrevMarkerAny'  :  "[=",
+        \ 'ListLocalMarks'     :  "m/",
+        \ 'ListLocalMarkers'   :  "m?"
+        \ }
+
 " hybridline
 " powerline
 

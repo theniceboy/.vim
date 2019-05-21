@@ -53,6 +53,9 @@
 | `I`        | cursor to the end of the line                             | `$`                 |
 | `Ctrl` `u` | move the view port up 5 lines without moving the cursor   | `Ctrl` `y`          |
 | `Ctrl` `e` | move the view port down 5 lines without moving the cursor | `Ctrl` `e`          |
+| `w`        | next word                                                 |                     |
+| `h`        | move to the end of this word                              | `e`                 |
+| `b`        | previous word                                             |                     |
 
 #### 1.3 Some Other Commands That Your Moms Don't Tell You
 
@@ -108,14 +111,13 @@
 | Get type          | `gt`     | `:YcmCompleter GetType<CR>`                       |
 | Go to references  | `gr`     | `:YcmCompleter GoToReferences`                    |
 
-### 6 Bookmarks (vim-bookmarks)
+### 6 Bookmarks (vim-signiture)
 
-| Action                              | Shortcut | Command                 |
-|-------------------------------------|----------|-------------------------|
-| Add/remove bookmark at current line | `mm`     | `:BookmarkToggle<CR>`   |
-| Add/edit/remove annotation          | `mm`     | `:BookmarkAnnotate<CR>` |
-| Jump to the next bookmark in buffer | `mn`     | `:BookmarkNext<CR>`     |
-| Jump to the previous bookmark       | `mp`     | `:BookmarkPrev<CR>`     |
+| Action                          | Shortcut    | Command |
+|---------------------------------|-------------|---------|
+| Add/remove mark at current line | `m<letter>` |         |
+| List all marks                  | `m/`        |         |
+| Jump to the next mark in buffer | `m<SPACE>`  |         |
 
 For more commands, see [here](https://github.com/MattesGroeger/vim-bookmarks#usage)
 
