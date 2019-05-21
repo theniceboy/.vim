@@ -1,15 +1,26 @@
 # .vim
 
-## TODO-LIST:
+## After Installation, You Need To:
 
-Mac:
-alias vim='/Applications/MacVim.app/Contents/bin/mvim -v'
 
-You need `ctags` for function/class/variable list
+## After Installation, You Might Want To:
 
-## AutoComplete
+### On MacOS:
 
-If you want to use YCM, you need cmake, and execute `sudo python3 [your vim folder]/plugged/install.py`
+- [ ] Install MacVim and use Iterm2 if something is not working right
+
+### For Error Checking
+- [ ] See `_machine_specific.vim`
+
+### For Code AutoComplete (YouCompleteMe)
+
+- [ ] Install `cmake`
+- [ ] Run `sudo python3 [your vim folder]/plugged/install.py`
+- [ ] For python: `sudo pip3 install pylint autopep8 yapf`
+
+### For Taglist:
+
+- [ ] Install `ctags` for function/class/variable list
 
 
 ## Keyboard Shortcuts for `NORMAL` (`COMMAND`) Mode
@@ -30,28 +41,25 @@ If you want to use YCM, you need cmake, and execute `sudo python3 [your vim fold
 
 #### 1.2 Cursor Movement
 
-**`u`** : cursor up, equals to `arrow key up` or `gk`
-
-**`e`** : cursor down, equals to `arrow key down` or `gj`
-
-**`n`** : cursor left, equals to `arrow key left` or `h`
-
-**`i`** : cursor right, equals to `arrowkey right` or `l`
-
-**`U`** : cursor up, equals to `arrow key up 5 terminal lines` or `5gk`
-
-**`E`** : cursor down, equals to `arrow key down 5 terminal lines` or `5gj`
-
-**`N`** : cursor left, equals to `arrow key left 5 places` or `5h`
-
-**`I`** : cursor right, equals to `arrow key right 5 places` or `5l`
+| Command    | What it does                                              | Equivalent (QWERTY) |
+|------------|-----------------------------------------------------------|---------------------|
+| `u`        | cursor up a terminal line                                 | `gk`                |
+| `e`        | cursor down a terminal line                               | `gj`                |
+| `n`        | cursor left                                               | `h`                 |
+| `i`        | cursor right                                              | `l`                 |
+| `U`        | cursor up 5 terminal lines                                | `5gk`               |
+| `E`        | cursor down 5 terminal lines                              | `5gj`               |
+| `N`        | cursor to the start of the line                           | `0`                 |
+| `I`        | cursor to the end of the line                             | `$`                 |
+| `Ctrl` `u` | move the view port up 5 lines without moving the cursor   | `Ctrl` `y`          |
+| `Ctrl` `e` | move the view port down 5 lines without moving the cursor | `Ctrl` `e`          |
 
 #### 1.3 Some Other Commands That Your Moms Don't Tell You
 
 | Command | What it does                       |
 |---------|------------------------------------|
 | `<C-i>` | Go to the next cursor position     |
-| `<C-O>` | Go to the previous cursor position |
+| `<C-o>` | Go to the previous cursor position |
 
 ### 2 Window Management
 

@@ -68,16 +68,27 @@ map S :w<CR>
 noremap k i
 noremap K I
 
-" Arr
+" Cursor Movement
 noremap u gk
 noremap n h
 noremap e gj
-noremap l u
 noremap i l
 noremap U 5gk
 noremap N 0
 noremap E 5gj
 noremap I $
+"noremap <C-u> <C-y>
+noremap <C-U> 5<C-y>
+noremap <C-E> 5<C-e>
+"inoremap <C-u> <Esc><C-y>a
+"inoremap <C-e> <Esc><C-e>a
+inoremap <C-U> <Esc>5<C-y>a
+inoremap <C-E> <Esc>5<C-e>a
+
+" Basic operations
+noremap l u
+noremap L U
+inoremap <C-l> <C-u>
 
 " Disable Arrow keys. WE DO NOT NEED THEM
 map <up> <nop>
