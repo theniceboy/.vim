@@ -1,5 +1,15 @@
-" todos
-" - hotkey to switch between light theme and dark theme
+"  __  __        __     _____ __  __ ____   ____ 
+" |  \/  |_   _  \ \   / /_ _|  \/  |  _ \ / ___|
+" | |\/| | | | |  \ \ / / | || |\/| | |_) | |    
+" | |  | | |_| |   \ V /  | || |  | |  _ <| |___ 
+" |_|  |_|\__, |    \_/  |___|_|  |_|_| \_\\____|
+"         |___/                                  
+
+" Todos
+" - pylint reports error when doing `vim ~/Github/vim-calc/build-up/calc.py`
+"   instead of doing `cd ~/Github/vim-calc/build-up` and then do `vim calc.py`
+" - hotkey to switch between light theme and dark theme (in progress, still
+"   some bugs
 
 " ===
 " === Auto load for first time uses
@@ -220,6 +230,9 @@ map ` ~
 " Auto change directory to current dir
 autocmd BufEnter * silent! lcd %:p:h
 
+" Call figlet
+map tx :r !figlet 
+
 " Compile function
 autocmd Filetype vim map R :source $MYVIMRC<CR>
 map r :call CompileRunGcc()<CR>
@@ -276,8 +289,8 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'mbbill/undotree/'
 
 " Snippits
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'  , { 'for': ['vim-plug', 'python'] }  
+Plug 'honza/vim-snippets', { 'for': ['vim-plug', 'python'] }
 
 " Other visual enhancement
 Plug 'nathanaelkane/vim-indent-guides'
@@ -298,7 +311,7 @@ Plug 'mattn/emmet-vim'
 
 " Python
 Plug 'vim-scripts/indentpython.vim'
-Plug 'vim-python/python-syntax', { 'for' :['python', 'vim-plug'] }
+" Plug 'vim-python/python-syntax', { 'for' :['python', 'vim-plug'] }
 
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
@@ -322,6 +335,7 @@ Plug 'scrooloose/nerdcommenter' " in <space>cc to comment a line
 " Dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'kana/vim-textobj-user'
+Plug 'fadein/vim-FIGlet'
 
 call plug#end()
 

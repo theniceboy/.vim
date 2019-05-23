@@ -129,3 +129,16 @@ For more commands, see [here](https://github.com/MattesGroeger/vim-bookmarks#usa
 
 Toggle "Table Editing Mode" with `<SPACE>` (equals to command `:TableModeToggle<CR>`)
 
+### Some Other Useful Stuff
+
+#### Press `tx` and enter your text
+
+`tx Hello<Enter>`
+```
+ _   _      _ _       
+| | | | ___| | | ___  
+| |_| |/ _ \ | |/ _ \ 
+|  _  |  __/ | | (_) |
+|_| |_|\___|_|_|\___/ 
+```
+
