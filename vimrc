@@ -538,8 +538,14 @@ let g:UltiSnipsExpandTrigger           = '<C-z>'
 let g:UltiSnipsJumpForwardTrigger      = '<C-z>'
 "let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
-" Open the _machine_specific.vim file if it has just been created
 
+
+" Testring my own plugin
+source ~/Github/vim-calc/vim-calc.vim
+map <LEADER>ca :call Calc()<CR>
+
+
+" Open the _machine_specific.vim file if it has just been created
 if has_machine_specific_file == 0
   exec "e ~/.vim/_machine_specific.vim"
 endif
