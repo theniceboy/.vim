@@ -377,6 +377,7 @@ map <LEADER>c1 :set background=dark<CR>:colorscheme snazzy<CR>:AirlineTheme drac
 map <LEADER>c2 :set background=light<CR>:colorscheme PaperColor<CR>:AirlineTheme papercolor<CR>
 
 colorscheme snazzy
+let g:SnazzyTransparent = 1
 set background=dark
 let g:airline_theme='dracula'
 
