@@ -65,6 +65,7 @@
 | `<C-o>` | Go to the previous cursor position    |
 | `<C-a>` | Increase the number under cursor by 1 |
 | `<C-x>` | Decrease the number under cursor by 1 |
+| `z=`    | Show spell suggestions                |
 
 
 ### 2 Window Management

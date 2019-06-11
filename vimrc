@@ -6,6 +6,7 @@
 "         |___/                                  
 
 " Todos
+" - vimwiki
 " - pylint reports error when doing `vim ~/Github/vim-calc/build-up/calc.py`
 "   instead of doing `cd ~/Github/vim-calc/build-up` and then do `vim calc.py`
 " - hotkey to switch between light theme and dark theme (in progress, still
@@ -36,6 +37,9 @@ set mouse=a
 set encoding=utf-8
 
 set clipboard=unnamed
+
+" Prevent incorrect backgroung rendering
+let &t_ut=''
 
 " ===
 " === Main code display
@@ -98,9 +102,7 @@ set smartcase
 " ===
 " === Restore Cursor Position
 " ===
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 
 " ===
@@ -227,6 +229,9 @@ map <LEADER>sc :set spell!<CR>
 " Press ` to change case (instead of ~)
 map ` ~
 
+imap <C-c> <Esc>zza
+nmap <C-c> zz
+
 " Auto change directory to current dir
 autocmd BufEnter * silent! lcd %:p:h
 
@@ -234,7 +239,6 @@ autocmd BufEnter * silent! lcd %:p:h
 map tx :r !figlet 
 
 " Compile function
-autocmd Filetype vim map R :source $MYVIMRC<CR>
 map r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
   exec "w"
@@ -250,14 +254,27 @@ func! CompileRunGcc()
   elseif &filetype == 'sh'
     :!time bash %
   elseif &filetype == 'python'
-    exec "clear"
-    exec "!time python3 %"
+    silent! exec "!clear"
+    exec "!time sudo python3 %"
   elseif &filetype == 'html'
     exec "!firefox % &"
   elseif &filetype == 'markdown'
     exec "MarkdownPreview"
+  elseif &filetype == 'vimwiki'
+    exec "Vimwiki2HTMLBrowse"
   endif
 endfunc
+
+map R :call CompileBuildrrr()<CR>
+func! CompileBuildrrr()
+  exec "w"
+  if &filetype == 'vim'
+    exec "source $MYVIMRC"
+  elseif &filetype == 'markdown'
+    exec "echo"
+  endif
+endfunc
+
 
 " ===
 " === Install Plugins with Vim-Plug
@@ -274,6 +291,7 @@ Plug 'bling/vim-bufferline'
 
 " File navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 
 " Taglist
@@ -289,8 +307,8 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'mbbill/undotree/'
 
 " Snippits
-Plug 'SirVer/ultisnips'  , { 'for': ['vim-plug', 'python'] }  
-Plug 'honza/vim-snippets', { 'for': ['vim-plug', 'python'] }
+" Plug 'SirVer/ultisnips'  , { 'for': ['vim-plug', 'python'] }  
+" Plug 'honza/vim-snippets', { 'for': ['vim-plug', 'python'] }
 
 " Other visual enhancement
 Plug 'nathanaelkane/vim-indent-guides'
@@ -316,6 +334,7 @@ Plug 'vim-scripts/indentpython.vim'
 " Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+Plug 'vimwiki/vimwiki'
 
 " For general writing
 Plug 'reedes/vim-wordy'
@@ -325,6 +344,7 @@ Plug 'ron89/thesaurus_query.vim'
 Plug 'kshenoy/vim-signature'
 
 " Other useful utilities
+Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/goyo.vim' " distraction free writing mode
 Plug 'ntpeters/vim-better-whitespace', { 'on': ['EnableWhitespace', 'ToggleWhitespace'] } "displays trailing whitespace (after :EnableWhitespace, vim slows down)
 Plug 'tpope/vim-surround' " type ysks' to wrap the word with '' or type cs'` to change 'word' to `word`
@@ -430,7 +450,7 @@ let g:mkdp_refresh_slow = 0
 let g:mkdp_command_for_global = 0
 let g:mkdp_open_to_the_world = 0
 let g:mkdp_open_ip = ''
-let g:mkdp_browser = ''
+let g:mkdp_browser = 'chromium'
 let g:mkdp_echo_preview_url = 0
 let g:mkdp_browserfunc = ''
 let g:mkdp_preview_options = {
@@ -540,9 +560,25 @@ let g:UltiSnipsJumpForwardTrigger      = '<C-z>'
 
 
 
+" ==
+" == NERDTree-git
+" ==
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
+
 " Testring my own plugin
 source ~/Github/vim-calc/vim-calc.vim
-map <LEADER>ca :call Calc()<CR>
+" map <LEADER>a :call Calc()<CR>
 
 
 " Open the _machine_specific.vim file if it has just been created
