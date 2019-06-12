@@ -1,3 +1,19 @@
+### Insert
+
+```vim
+noremap k i
+noremap K I
+```
+
+```vim
+i (k)
+I (K)
+o
+O
+a
+A
+```
+
 ### HJKL movements
 
 ```vim
@@ -28,13 +44,6 @@ imap <right> <nop>
 ```vim
 noremap <C-u> <C-y>
 noremap <C-e> <C-e>
-```
-
-### Insert
-
-```vim
-noremap k i
-noremap K I
 ```
 
 ### Centering the current line
@@ -170,15 +179,52 @@ map tmn :-tabmove<CR>
 map tmi :+tabmove<CR>
 ```
 
-### Other useful stuff
+### Plugins
 
-```vim
-" cap/uncap letters
-map ` ~
+```shell
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 ```vim
+call plug#begin('~/.vim/plugged')
 
+Plug 'connorholyday/vim-snazzy'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
+Plug 'Valloric/YouCompleteMe'
+
+call plug#end()
+```
+
+```vim
+" Pretty Dress
+colorscheme snazzy
+let g:SnazzyTransparent = 1
+set background=dark
+let g:airline_theme='dracula'
+```
+
+```vim
+" YCM
+let g:ycm_python_interpreter_path = "/bin/python3"
+let g:ycm_python_binary_path = "/bin/python3"
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_use_clangd = 0
+```
+
+```vim 
+" ale
+let b:ale_linters = ['pylint']
+let b:ale_fixers = ['autopep8', 'yapf']
+```
+
+`sudo pip3 install pylint autopep8 yapf`
+
+### Other useful stuff
+
+```vim
 " Quick compile key
 map r :call CompileRun()
 func! CompileRun()
@@ -207,31 +253,17 @@ func! CompileRun()
 endfunc
 ```
 
-### Plugins
-
-```shell
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```vim
+" Press space twice to jump to the next '<++>' and edit it
+map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4i
 ```
 
 ```vim
-call plug#begin('~/.vim/plugged')
-
-Plug 'connorholyday/vim-snazzy'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe'
-
-call plug#end()
+" cap/uncap letters
+map ` ~
 ```
 
 ```vim
-" Pretty Dress
-colorscheme snazzy
-let g:SnazzyTransparent = 1
-set background=dark
-let g:airline_theme='dracula'
+map <LEADER>sc :set spell!<CR>
 ```
-
 
