@@ -17,16 +17,16 @@ A
 ### HJKL movements
 
 ```vim
-noremap u gk
-noremap e gj
+noremap u k
+noremap e j
 noremap n h
 noremap i l
 ```
 
 ```vim
-noremap U 5gk
+noremap U 5k
 noremap N 0
-noremap E 5gj
+noremap E 5j
 noremap I $
 ```
 
@@ -73,6 +73,7 @@ syntax on
 set number
 set relativenumber
 set cursorline
+set wrap
 set showcmd
 set wildmenu
 ```
@@ -121,6 +122,10 @@ noremap - Nzz
 ```vim
 map <LEADER><CR> :nohlsearch<CR>
 ```
+
+### Macros
+
+`qa` -> some operations -> `@a` (100@a)
 
 ### Split Screen
 

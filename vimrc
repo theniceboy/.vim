@@ -59,8 +59,9 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set wrap
+
 " Prevent auto line split
+set wrap
 set tw=0
 
 set indentexpr=
@@ -149,13 +150,13 @@ noremap - Nzz
 " < n   i >
 "     e
 "     v
-noremap u gk
+noremap u k
 noremap n h
-noremap e gj
+noremap e j
 noremap i l
 " U/E keys for 5 times u/e (faster navigation)
-noremap U 5gk
-noremap E 5gj
+noremap U 5k
+noremap E 5j
 " N key: go to the start of the line
 noremap N 0
 " I key: go to the end of the line
