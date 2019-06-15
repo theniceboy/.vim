@@ -59,6 +59,9 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set list
+set listchars=tab:▸\ ,trail:▫
+set scrolloff=5
 
 " Prevent auto line split
 set wrap
@@ -90,7 +93,9 @@ set showcmd
 set formatoptions-=tc
 
 " Show command autocomplete
-set wildmenu
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+set wildmenu                                                 " show a navigable menu for tab completion
+set wildmode=longest,list,full
 
 " Searching options
 set hlsearch
@@ -115,6 +120,7 @@ let mapleader=" "
 
 " Column (:) mods
 map ; :
+map q; q:
 map <LEADER>/ :!
 map <LEADER>sr :%s/
 
@@ -157,11 +163,18 @@ noremap i l
 " U/E keys for 5 times u/e (faster navigation)
 noremap U 5k
 noremap E 5j
+noremap N 7h
+noremap I 7l
 " N key: go to the start of the line
-noremap N 0
+noremap <C-n> 0
 " I key: go to the end of the line
-noremap I $
+noremap <C-i> $
 
+" Faster in-line navigation
+noremap w W
+noremap W 5W
+noremap b B
+noremap B 5B
 " set h (same as n, cursor left) to 'end of word'
 noremap h e
 
@@ -260,7 +273,7 @@ func! CompileRunGcc()
     :!time bash %
   elseif &filetype == 'python'
     silent! exec "!clear"
-    exec "!time sudo python3 %"
+    exec "!time python3 %"
   elseif &filetype == 'html'
     exec "!firefox % &"
   elseif &filetype == 'markdown'
@@ -292,6 +305,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'connorholyday/vim-snazzy'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'ayu-theme/ayu-vim'
 Plug 'bling/vim-bufferline'
 
 " File navigation
@@ -317,6 +331,8 @@ Plug 'mbbill/undotree/'
 
 " Other visual enhancement
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'itchyny/vim-cursorword'
+Plug 'tmhedberg/SimpylFold'
 
 " Git
 Plug 'rhysd/conflict-marker.vim'
@@ -379,8 +395,12 @@ source ~/.vim/_machine_specific.vim
 " === Dress up my vim
 " ===
 map <LEADER>c1 :set background=dark<CR>:colorscheme snazzy<CR>:AirlineTheme dracula<CR>
-map <LEADER>c2 :set background=light<CR>:colorscheme PaperColor<CR>:AirlineTheme papercolor<CR>
+map <LEADER>c2 :set background=light<CR>:colorscheme ayu<CR>:AirlineTheme ayu_light<CR>
 
+set termguicolors     " enable true colors support
+let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
 colorscheme snazzy
 let g:SnazzyTransparent = 1
 set background=dark
@@ -421,7 +441,8 @@ nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap g/ :YcmCompleter GetDoc<CR>
 nnoremap gt :YcmCompleter GetType<CR>
 nnoremap gr :YcmCompleter GoToReferences<CR>
-let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_autoclose_preview_window_after_completion=0
+let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_use_clangd = 0
 let g:ycm_python_binary_path = g:ycm_python_interpreter_path
 "let g:ycm_python_interpreter_path = system('which python3')
@@ -586,6 +607,18 @@ let g:NERDTreeIndicatorMapCustom = {
 source ~/Github/vim-calc/vim-calc.vim
 " map <LEADER>a :call Calc()<CR>
 
+" ==
+" == vim-multiple-cursor
+" ==
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_start_word_key      = '<c-k>'
+let g:multi_cursor_select_all_word_key = '<a-k>'
+let g:multi_cursor_start_key           = 'g<c-k>'
+let g:multi_cursor_select_all_key      = 'g<a-k>'
+let g:multi_cursor_next_key            = '<c-k>'
+let g:multi_cursor_prev_key            = '<c-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 " Open the _machine_specific.vim file if it has just been created
 if has_machine_specific_file == 0
