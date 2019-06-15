@@ -122,6 +122,7 @@ let mapleader=" "
 map ; :
 map q; q:
 map <LEADER>/ :!
+map <LEADER>r :r !
 map <LEADER>sr :%s/
 
 " Save & quit
@@ -144,6 +145,9 @@ noremap K I
 map <LEADER><CR> :nohlsearch<CR>
 noremap = nzz
 noremap - Nzz
+
+" Others
+map <LEADER>o o<Esc>u
 
 
 " ===
@@ -570,7 +574,7 @@ let g:SignatureMap = {
 
 
 " ===
-" ==  eEE= Undotree
+" === Undotree
 " ===
 let g:undotree_DiffAutoOpen = 0
 map L :UndotreeToggle<CR>

@@ -127,6 +127,35 @@ map <LEADER><CR> :nohlsearch<CR>
 
 `qa` -> some operations -> `@a` (100@a)
 
+### Basic Plugins (Pretty Dress)
+
+```bash
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+```vim
+call plug#begin('~/.vim/plugged')
+
+Plug 'connorholyday/vim-snazzy'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+```
+
+```vim
+" Pretty Dress
+colorscheme snazzy
+let g:SnazzyTransparent = 1
+set background=dark
+let g:airline_theme='dracula'
+```
+
+### Visual Mode
+
+### Visual Block Mode
+
 ### Split Screen
 
 ```vim
@@ -184,32 +213,41 @@ map tmn :-tabmove<CR>
 map tmi :+tabmove<CR>
 ```
 
-### Plugins
-
-```shell
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
+### Some setup for Plugins and some extra setup
 
 ```vim
-call plug#begin('~/.vim/plugged')
-
-Plug 'connorholyday/vim-snazzy'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe'
-
-call plug#end()
+set nocompatible
+filetype on
+filetype indent on
+filetype plugin on
+filetype plugin indent on
+set mouse=a
+set encoding=utf-8
+let &t_ut=''
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set list
+set listchars=tab:▸\ ,trail:▫
+set scrolloff=5
+set wrap
+set tw=0
+set indentexpr=
+set backspace=indent,eol,start
+set foldmethod=indent
+set foldlevel=99
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+set laststatus=2
+set autochdir
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 ```
 
-```vim
-" Pretty Dress
-colorscheme snazzy
-let g:SnazzyTransparent = 1
-set background=dark
-let g:airline_theme='dracula'
-```
+### YCM
+
+`Plug 'Valloric/YouCompleteMe'`
 
 ```vim
 " YCM
@@ -219,6 +257,10 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_use_clangd = 0
 ```
 
+### ale
+
+`Plug 'w0rp/ale'`
+
 ```vim 
 " ale
 let b:ale_linters = ['pylint']
@@ -226,6 +268,9 @@ let b:ale_fixers = ['autopep8', 'yapf']
 ```
 
 `sudo pip3 install pylint autopep8 yapf`
+
+### 
+
 
 ### Other useful stuff
 
