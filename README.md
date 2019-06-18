@@ -33,7 +33,7 @@
 
 **`Q`** : quit current vim window, equals to command `:q`
 
-**`S`** : save the current file, equals to command `:s`
+**`S`** : save the current file, equals to command `:w`
 
 **_IMPORTANT_**
 
@@ -131,6 +131,8 @@ For more commands, see [here](https://github.com/MattesGroeger/vim-bookmarks#usa
 Toggle "Table Editing Mode" with `<SPACE>` (equals to command `:TableModeToggle<CR>`)
 
 ### Some Other Useful Stuff
+
+#### Press `<SPACE>fd` to highlight adjacent duplicated words
 
 #### Press `tx` and enter your text
 

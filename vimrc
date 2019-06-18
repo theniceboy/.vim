@@ -146,6 +146,9 @@ map <LEADER><CR> :nohlsearch<CR>
 noremap = nzz
 noremap - Nzz
 
+" Duplicate words
+map <LEADER>fd /\(\<\w\+\>\)\_s*\1
+
 " Others
 map <LEADER>o o<Esc>u
 
@@ -154,7 +157,7 @@ map <LEADER>o o<Esc>u
 " === Cursor Movement
 " ===
 "
-" New cursow movement (the default arrow keys are used for resizing windows)
+" New cursor movement (the default arrow keys are used for resizing windows)
 "     ^
 "     u
 " < n   i >
@@ -167,12 +170,10 @@ noremap i l
 " U/E keys for 5 times u/e (faster navigation)
 noremap U 5k
 noremap E 5j
-noremap N 7h
-noremap I 7l
 " N key: go to the start of the line
-noremap <C-n> 0
+noremap N 0
 " I key: go to the end of the line
-noremap <C-i> $
+noremap I $
 
 " Faster in-line navigation
 noremap w W
@@ -247,6 +248,8 @@ map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4i
 
 " Spelling Check with <space>sc
 map <LEADER>sc :set spell!<CR>
+noremap <C-x> ea<C-x>s
+inoremap <C-x> <Esc>ea<C-x>s
 
 " Press ` to change case (instead of ~)
 map ` ~
@@ -325,6 +328,7 @@ Plug 'w0rp/ale'
 
 " Auto Complete
 Plug 'Valloric/YouCompleteMe'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Undo Tree
 Plug 'mbbill/undotree/'
@@ -623,6 +627,13 @@ let g:multi_cursor_next_key            = '<c-k>'
 let g:multi_cursor_prev_key            = '<c-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
 
 " Open the _machine_specific.vim file if it has just been created
 if has_machine_specific_file == 0
