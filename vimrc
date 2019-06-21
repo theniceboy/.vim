@@ -176,10 +176,8 @@ noremap N 0
 noremap I $
 
 " Faster in-line navigation
-noremap w W
-noremap W 5W
-noremap b B
-noremap B 5B
+noremap W 5w
+noremap B 5b
 " set h (same as n, cursor left) to 'end of word'
 noremap h e
 
@@ -612,7 +610,9 @@ let g:NERDTreeIndicatorMapCustom = {
 
 
 " Testring my own plugin
-source ~/Github/vim-calc/vim-calc.vim
+if !empty(glob('~/Github/vim-calc/vim-calc.vim'))
+  source ~/Github/vim-calc/vim-calc.vim
+endif
 " map <LEADER>a :call Calc()<CR>
 
 " ==
