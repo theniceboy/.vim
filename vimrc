@@ -141,6 +141,9 @@ inoremap <C-l> <C-u>
 noremap k i
 noremap K I
 
+" Copy to system clipboard
+vnoremap Y :w !xclip -i -sel c<CR>
+
 " Search
 map <LEADER><CR> :nohlsearch<CR>
 noremap = nzz
