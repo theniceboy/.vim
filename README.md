@@ -43,12 +43,12 @@
 
 | Command    | What it does                                              | Equivalent (QWERTY) |
 |------------|-----------------------------------------------------------|---------------------|
-| `u`        | cursor up a terminal line                                 | `gk`                |
-| `e`        | cursor down a terminal line                               | `gj`                |
+| `u`        | cursor up a terminal line                                 | `k`                |
+| `e`        | cursor down a terminal line                               | `j`                |
 | `n`        | cursor left                                               | `h`                 |
 | `i`        | cursor right                                              | `l`                 |
-| `U`        | cursor up 5 terminal lines                                | `5gk`               |
-| `E`        | cursor down 5 terminal lines                              | `5gj`               |
+| `U`        | cursor up 5 terminal lines                                | `5k`               |
+| `E`        | cursor down 5 terminal lines                              | `5j`               |
 | `N`        | cursor to the start of the line                           | `0`                 |
 | `I`        | cursor to the end of the line                             | `$`                 |
 | `Ctrl` `u` | move the view port up 5 lines without moving the cursor   | `Ctrl` `y`          |
@@ -99,9 +99,10 @@
 #### 3.2 CtrlP (the fuzzy file finder)
 
 | Action           | Shortcut   | Command      |
+|------------------|------------|--------------|
 | Active CtrlP     | `Ctrl` `p` | `:CtrlP<CR>` |
-| Move up 1 item   | `Ctrl` `u` |              |
-| Move down 1 item | `Ctrl` `e` |              |
+| Move up 1 item   | `Ctrl` `u` | ` `          |
+| Move down 1 item | `Ctrl` `e` | ` `          |
 
 ### 4 AutoComplete (YCM)
 
@@ -113,6 +114,8 @@
 | Go to references  | `gr`     | `:YcmCompleter GoToReferences`                    |
 
 ### 5 Undotree
+
+Press `Shift` + `L` to open Undotree
 
 ### 6 Bookmarks (vim-signiture)
 
