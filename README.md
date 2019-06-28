@@ -131,7 +131,7 @@ For more commands, see [here](https://github.com/MattesGroeger/vim-bookmarks#usa
 
 #### 7.1 Edit Table with `vim-table-mode`
 
-Toggle "Table Editing Mode" with `<SPACE>` (equals to command `:TableModeToggle<CR>`)
+Toggle "Table Editing Mode" with `<SPACE>tm` (equals to command `:TableModeToggle<CR>`)
 
 ### Some Other Useful Stuff
 
