@@ -330,6 +330,7 @@ Plug 'w0rp/ale'
 " Auto Complete
 Plug 'Valloric/YouCompleteMe'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'davidhalter/jedi-vim'
 
 " Undo Tree
 Plug 'mbbill/undotree/'
@@ -474,7 +475,7 @@ autocmd WinEnter * silent! unmap <LEADER>ig
 " === ale
 " ===
 let b:ale_linters = ['pylint']
-let b:ale_fixers = ['autopep8', 'yapf']
+" let b:ale_fixers = ['autopep8', 'yapf']
 
 
 " ===
@@ -637,7 +638,6 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 let g:vimwiki_list = [{
-  \ 'auto_export': 1,
   \ 'automatic_nested_syntaxes':1,
   \ 'path_html': '~/wiki_html',
   \ 'path': '~/wiki',
