@@ -375,6 +375,7 @@ Plug 'ron89/thesaurus_query.vim'
 Plug 'kshenoy/vim-signature'
 
 " Other useful utilities
+Plug 'jiangmiao/auto-pairs'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/goyo.vim' " distraction free writing mode
 Plug 'ntpeters/vim-better-whitespace', { 'on': ['EnableWhitespace', 'ToggleWhitespace'] } "displays trailing whitespace (after :EnableWhitespace, vim slows down)
