@@ -1,9 +1,9 @@
-"  __  __        __     _____ __  __ ____   ____ 
+"  __  __        __     _____ __  __ ____   ____
 " |  \/  |_   _  \ \   / /_ _|  \/  |  _ \ / ___|
-" | |\/| | | | |  \ \ / / | || |\/| | |_) | |    
-" | |  | | |_| |   \ V /  | || |  | |  _ <| |___ 
+" | |\/| | | | |  \ \ / / | || |\/| | |_) | |
+" | |  | | |_| |   \ V /  | || |  | |  _ <| |___
 " |_|  |_|\__, |    \_/  |___|_|  |_|_| \_\\____|
-"         |___/                                  
+"         |___/
 
 " Todos
 " - vimwiki
@@ -328,9 +328,9 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 Plug 'w0rp/ale'
 
 " Auto Complete
-Plug 'Valloric/YouCompleteMe'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'davidhalter/jedi-vim'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'davidhalter/jedi-vim'
 
 " Undo Tree
 Plug 'mbbill/undotree/'
@@ -475,8 +475,9 @@ autocmd WinEnter * silent! unmap <LEADER>ig
 " ===
 " === ale
 " ===
-let b:ale_linters = ['pylint']
+let b:ale_linters = [] "['pylint']
 " let b:ale_fixers = ['autopep8', 'yapf']
+let g:ale_python_pylint_options = "--extension-pkg-whitelist=pygame"
 
 
 " ===
@@ -633,11 +634,6 @@ let g:multi_cursor_prev_key            = '<c-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" always show signcolumns
-set signcolumn=yes
 let g:vimwiki_list = [{
   \ 'automatic_nested_syntaxes':1,
   \ 'path_html': '~/wiki_html',
@@ -659,6 +655,44 @@ let g:taskwiki_markup_syntax='markdown'
 source ~/.vim/snippits.vim
 
 
+" === Experimenting coc.nvim features
+set timeoutlen=100
+set cmdheight=2
+
+inoremap <C-d> <Esc>:set cmdheight=2<CR>a
+inoremap <C-t> <Esc>:set cmdheight=10<CR>a
+nnoremap <C-d> :set cmdheight=2<CR>
+nnoremap <C-t> :set cmdheight=10<CR>
+
+set updatetime=1000
+set shortmess+=c
+set signcolumn=yes
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use K to show documentation in preview window
+nnoremap ? :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+"
 " Open the _machine_specific.vim file if it has just been created
 if has_machine_specific_file == 0
   exec "e ~/.vim/_machine_specific.vim"
